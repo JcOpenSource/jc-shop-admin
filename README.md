@@ -21,4 +21,6 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 ```
 git commit -m "chore: 配置commitlint"
+
+git commit -m "docs: 修改了README"
 ```
