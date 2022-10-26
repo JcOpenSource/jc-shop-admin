@@ -35,7 +35,7 @@
 -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import HelloWorld from '../components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
 import HelloWorldJSX from '../components/HelloWorldJSX.vue'
 // const props = defineProps({
 //   msg: { type: String, required: true },
