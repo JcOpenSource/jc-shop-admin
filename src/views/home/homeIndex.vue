@@ -1,5 +1,7 @@
 <template>
-  <h1>home</h1>
+  <h1 class="homec">
+    home
+  </h1>
   <!-- $store 注册到全局根式实例的模板对象上去了 -->
   <p>{{ $store.state.count }}</p>
   <p>{{ store.state.count }}</p>
@@ -27,10 +29,14 @@ console.log(User)
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .box{
   width: 200px;
   height: 200px;
   background: url("@/assets/vue.svg");
 }
+.homec{
+  color: $injectedColor;
+}
+
 </style>

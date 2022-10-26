@@ -21,5 +21,15 @@ export default defineConfig({
     alias: {
       '@': path.join(__dirname, 'src') // 绝对路径
     }
+  },
+  // 全局css
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // additionalData: `$injectedColor: orange;`
+        additionalData: `@import "@/styles/variables.scss";`
+      }
+    }
+
   }
 })
