@@ -1,12 +1,12 @@
 <template>
   <h1 ref="title">
-    {{ msg }}
+    {{ props.msg }}
   </h1>
 
   <div class="card">
     <button
       type="button"
-      @click="count++"
+      @click="increment"
     >
       count is {{ count }}
     </button>
@@ -15,28 +15,42 @@
       <code>components/HelloWorld.vue</code> to test HMR
     </p>
   </div>
-
-  <p>
-    Check out
-    <a
-      href="https://vuejs.org/guide/quick-start.html#local"
-      target="_blank"
-    >create-vue</a>, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a
-      href="https://github.com/johnsoncodehk/volar"
-      target="_blank"
-    >Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">
-    Click on the Vite and Vue logos to learn more
-  </p>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import { ref } from 'vue'
+
+//  defineProps, defineEmits 编译宏
+
+const props = defineProps<{
+  msg: {
+    type: String,
+    required: true,
+    default: ''
+  },
+  abc: {
+    type: Number,
+    required: true,
+    default: 0
+  }
+}>()
+
+const count = ref(100)
+// 数据会自动暴露出来给模板使用
+
+// 对外发布事件
+const emit = defineEmits(['increment'])
+
+const increment = () => {
+  console.log(props.msg)
+  count.value++
+  emit('increment')
+}
+
+</script>
+
+<!-- 选项式API  组合式API 在setup函数当中-->
+<!-- <script lang="ts">
 import { ref, defineComponent, PropType, onMounted } from 'vue'
 
 interface User {
@@ -97,7 +111,7 @@ export default defineComponent({
 // const msg = '123123'
 
 // const count = ref(0)
-</script>
+</script> -->
 
 <style scoped>
 .read-the-docs {

@@ -20,6 +20,10 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 
 ```
+不能以大写字母作为描述的开头。
+git commit -m "feat: vue3配置typescript以及类型使用"
+git commit -m "feat: TS+Vue3配置以及类型使用"
+
 git commit -m "chore: 配置commitlint"
 
 git commit -m "docs: 修改了README"
