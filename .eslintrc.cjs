@@ -24,5 +24,16 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-  }
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/promise-function-async": "off"
+  },
+  // 针对特定文件做规则定制
+  overrides: [
+    {
+      files: ['src/api/**/*.ts'],
+      rules: {
+        camelcase: 'off'
+      }
+    }
+  ]
 }
