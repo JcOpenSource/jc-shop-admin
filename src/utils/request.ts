@@ -2,7 +2,15 @@ import axios, { AxiosRequestConfig } from 'axios'
 
 // 克隆 实例 不会影响axios本身
 const request = axios.create({
-  baseURL: 'https://shop.fed.lagou.com/api/admin'
+  // baseURL: 'https://shop.fed.lagou.com/api/admin'
+
+  // 不设置 baseURL 就是当前页面所处域名
+  // 即：http://127.0.0.1:5173/
+  // baseURL: import.meta.env.VITE_API_BASEURL
+
+  // 不建议将代理域名写在这里
+  // 如果有多个代理这里不方便统一配置
+  // baseURL: '/admin'
 })
 
 /**

@@ -31,5 +31,35 @@ export default defineConfig({
       }
     }
 
+  },
+  // 生产打包成静态页后部署到nginx等web服务器中
+  // 生产上就不存在代理了 
+  server: { // 跨域代理
+    proxy: {
+      // /foo/123 => http://localhost:4567/foo/123
+      '/foo': ' http://localhost:4567/foo',
+      '/admin': {
+        // target: 'http://jsonplaceholder.typicode.com/api', // 代理的目标地址
+        target: 'http://localhost:3000/api',
+        // 兼容基于名字的虚拟主机
+        // 有些服务器会跑多个网站（多个域名） 
+        // 同虚拟主机的方式将不同域名请求区分出来
+        // 通过域名映射本地端口的服务方式
+        // a.com localhost:xxx
+        // b.com localhost:xxx
+        // 域名从http请求头部的 origin 字段
+        // 开发模式：默认的 origin 的真实的 origin：localhost：3000
+        // changeOrigin: true 就会把Origin修改为目标地址 http://jsonplaceholder.typicode.com
+        changeOrigin: true,
+        
+        // 路径重写
+        // http://jsonplaceholder.typicode.com/api/xxx
+        //  /api/xxx  =>  http://jsonplaceholder.typicode.com/api/xxx    不用路径重写
+        //  /api/xxx  =>  http://jsonplaceholder.typicode.com/xxx        需要路径重写
+
+        // rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   }
+
 })
