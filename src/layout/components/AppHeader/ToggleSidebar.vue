@@ -1,6 +1,6 @@
 <template>
   <el-icon
-    @click="$store.commit('setIsCollapse', !$store.state.isCollapse)"
+    @click="handleCollapse"
   >
     <Expand v-if="$store.state.isCollapse" />
     <Fold v-else />
@@ -8,14 +8,14 @@
 </template>
 
 <script lang="ts" setup>
-// import { useStore } from '@/store'
+// 在setup中使用store
+import { useStore } from '@/store'
 
-// const store = useStore()
+const store = useStore()
 
-// const changeCollapse = (flage:boolean) => {
-//   store.commit('setIsCollapse', flage)
-// }
-
+const handleCollapse = () => {
+  store.commit('setIsCollapse', !store.state.isCollapse)
+}
 </script>
 
 <style lang="scss" scoped></style>

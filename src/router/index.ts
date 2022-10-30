@@ -16,12 +16,15 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/',
         name: 'home',
-        component: async () => await import('../views/home/homeIndex.vue')
+        component: async () => await import('../views/home/homeIndex.vue'),
+        meta: {
+          title: '主页'
+        }
       },
-      productRoutes,
       mediaRoutes,
       orderRoutes,
-      permissionRoutes
+      permissionRoutes,
+      productRoutes
     ]
   },
   {

@@ -9,7 +9,7 @@
       </el-header>
       <el-main>
         <!-- 子路由渲染出口 -->
-        <!-- <router-view /> -->
+        <router-view />
       </el-main>
     </el-container>
   </el-container>
