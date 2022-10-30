@@ -1,15 +1,33 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+// 同步加载页面
+import AppLayoutVue from '@/layout/AppLayout.vue'
+
+import productRoutes from './modules/product'
+import mediaRoutes from './modules/media'
+import orderRoutes from './modules/order'
+import permissionRoutes from './modules/permission'
 
 // RouteRecordRaw routes的提示
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'home',
-    component: async () => await import('../views/home/homeIndex.vue')
+    component: AppLayoutVue,
+    children: [
+      {
+        path: '/',
+        name: 'home',
+        component: async () => await import('../views/home/homeIndex.vue')
+      },
+      productRoutes,
+      mediaRoutes,
+      orderRoutes,
+      permissionRoutes
+    ]
   },
   {
     path: '/login',
     name: 'login',
+    // 异步加载页面
     component: async () => await import('../views/login/loginIndex.vue')
   },
   {

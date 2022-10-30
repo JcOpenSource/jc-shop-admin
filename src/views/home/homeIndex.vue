@@ -9,6 +9,9 @@
     placeholder="Pick a day"
     size="large"
   />
+
+  <el-icon><InfoFilled /></el-icon>
+  <el-icon><Promotion /></el-icon>
 </template>
 
 <script lang="ts" setup>
