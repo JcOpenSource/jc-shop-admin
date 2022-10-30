@@ -1,42 +1,21 @@
 <template>
-  <h1 class="homec">
-    home
-  </h1>
-  <!-- $store 注册到全局根式实例的模板对象上去了 -->
-  <p>{{ $store.state.count }}</p>
-  <p>{{ store.state.count }}</p>
+  <el-button type="primary">Primary</el-button>
+  <el-button type="success">Success</el-button>
+  <el-button type="info">Info</el-button>
 
-  <img src="@/assets/vue.svg">
-
-  <div class="box" />
+  <el-date-picker
+    v-model="value2"
+    type="date"
+    placeholder="Pick a day"
+    size="large"
+  />
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
 
-// import { useStore } from 'vuex'
-// import { key } from '../../store'
-// const store = useStore(key)
-
-// 获取类型化的store实例
-// 一切数据都可追踪
-import { useStore } from '../../store'
-import User from '@/api/user'
-
-const store = useStore()
-console.log(store.state.count)
-
-console.log(User)
-
+const value2 = ref('')
 </script>
 
 <style lang="scss" scoped>
-.box{
-  width: 200px;
-  height: 200px;
-  background: url("@/assets/vue.svg");
-}
-.homec{
-  color: $injectedColor;
-}
-
 </style>

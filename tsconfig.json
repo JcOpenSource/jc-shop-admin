@@ -12,7 +12,8 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "types": ["vite/client"],
+    // "types": ["vite/client"],
+    "types": ["element-plus/global"],
     "baseUrl": "./",
     "paths": {
       "@/*":[
