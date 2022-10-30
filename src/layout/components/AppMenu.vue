@@ -22,7 +22,8 @@
     </el-menu-item>
     <el-sub-menu index="/product">
       <template #title>
-        <el-icon><location /></el-icon>
+        <!-- <el-icon><location /></el-icon> -->
+        <el-icon><Goods /></el-icon>
         <span>商品</span>
       </template>
       <el-menu-item index="/product/list">商品列表</el-menu-item>
@@ -78,7 +79,7 @@
 import {
   Document,
   Menu as IconMenu,
-  Location,
+  // Location,
   Setting
 } from '@element-plus/icons-vue'
 // import { ref } from 'vue'

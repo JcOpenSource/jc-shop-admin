@@ -7,6 +7,10 @@ import mediaRoutes from './modules/media'
 import orderRoutes from './modules/order'
 import permissionRoutes from './modules/permission'
 
+// 进度条
+import nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 // RouteRecordRaw routes的提示
 const routes: RouteRecordRaw[] = [
   {
@@ -45,6 +49,16 @@ const router = createRouter({
   history: createWebHashHistory(),
   // 路由规则
   routes
+})
+
+// 全局前置路由守卫
+router.beforeEach(() => {
+  nprogress.start() // 开始加载进度条
+})
+
+// 全局后置路由守卫
+router.afterEach(() => {
+  nprogress.done() // 进度条加载结束
 })
 
 export default router
