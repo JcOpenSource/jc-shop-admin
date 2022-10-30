@@ -28,3 +28,48 @@ git commit -m "chore: 配置commitlint"
 
 git commit -m "docs: 修改了README"
 ```
+
+
+> 惨痛的教训
+"lint": "eslint ./src/**/*.{js,jsx,vue,ts,tsx}",
+
+代码eslint校验失败回滚
+
+```
+> eslint ./src/**/*.{js,jsx,vue,ts,tsx} --fix "
+E:/code/jc-shop-admin/auto-imports.d.ts" 
+"E:/code/jc-shop-admin/components.d.ts" 
+"E:/code/jc-shop-admin/src/App.vue" 
+"E:/code/jc-shop-admin/src/layout/AppLayout.vue" 
+"E:/code/jc-shop-admin/src/layout/components/AppHeader/FullScreen.vue" 
+"E:/code/jc-shop-admin/src/layout/components/AppHeader/HeaderBreadcrumb.vue" 
+"E:/code/jc-shop-admin/src/layout/components/AppHeader/HeaderIndex.vue" 
+"E:/code/jc-shop-admin/src/layout/components/AppHeader/MenuSearch.vue" 
+"E:/code/jc-shop-admin/src/layout/components/AppHeader/ToggleSidebar.vue" 
+"E:/code/jc-shop-admin/src/layout/components/AppHeader/UserInfo.vue" 
+"E:/code/jc-shop-admin/src/layout/components/AppMenu.vue" 
+"E:/code/jc-shop-admin/src/main.ts" 
+"E:/code/jc-shop-admin/src/plugins/element-plus.ts" 
+"E:/code/jc-shop-admin/src/router.d.ts" 
+"E:/code/jc-shop-admin/src/router/index.ts" 
+"E:/code/jc-shop-admin/src/router/modules/media.ts" 
+"E:/code/jc-shop-admin/src/router/modules/order.ts" 
+"E:/code/jc-shop-admin/src/router/modules/permission.ts" 
+"E:/code/jc-shop-admin/src/router/modules/product.ts" 
+"E:/code/jc-shop-admin/src/store/index copy.ts" 
+"E:/code/jc-shop-admin/src/store/index.ts" 
+"E:/code/jc-shop-admin/src/views/home/homeIndex.vue" 
+"E:/code/jc-shop-admin/src/views/home/homeIndex2.vue" 
+"E:/code/jc-shop-admin/src/views/login/loginIndex.vue" 
+"E:/code/jc-shop-admin/src/views/media/mediaIndex.vue" 
+"E:/code/jc-shop-admin/src/views/order/list/listIndex.vue" 
+"E:/code/jc-shop-admin/src/views/order/offline/offlineIndex.vue" 
+"E:/code/jc-shop-admin/src/views/permission/admin/adminIndex.vue" 
+"E:/code/jc-shop-admin/src/views/permission/role/roleIndex.vue" 
+"E:/code/jc-shop-admin/src/views/permission/rule/ruleIndex.vue" 
+"E:/code/jc-shop-admin/src/views/production/attr/attrIndex.vue" 
+"E:/code/jc-shop-admin/src/views/production/classify/classifyIndex.vue" 
+"E:/code/jc-shop-admin/src/views/production/list/listIndex.vue" 
+"E:/code/jc-shop-admin/src/views/production/replay/replayIndex.vue" 
+"E:/code/jc-shop-admin/vite.config.ts"
+```
