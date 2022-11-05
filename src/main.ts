@@ -11,14 +11,14 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import { store, key } from './store'
 
 // 全局注入ElementPlus插件
-// import elementPlus from './plugins/element-plus'
+import elementPlus from './plugins/element-plus'
 
 const app = createApp(App)
 app.use(router)
 app.use(store, key)
 app.mount('#app')
 
-// app.use(elementPlus)
+app.use(elementPlus)
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)

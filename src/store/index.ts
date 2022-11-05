@@ -1,9 +1,11 @@
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
 import { InjectionKey } from 'vue'
-
+import { IUserInfo } from '../api/types/common'
 const state = {
   count: 0,
   foo: 'Hello state',
+  // 从本地存储获取初始化
+  userInfo: JSON.parse(window.localStorage.getItem('user') ?? 'null') as IUserInfo | null,
   isCollapse: false
 }
 
@@ -16,9 +18,15 @@ export const key: InjectionKey<Store<State>> = Symbol('store')
 // 按需导出
 export const store = createStore<State>({
   state,
+  //  mutation 变化
   mutations: {
     increment (state) {
       state.count++
+    },
+    setUserInfo (state, payload) {
+      state.userInfo = payload
+      // 持久化到本地
+      window.localStorage.setItem('user', JSON.stringify(state.userInfo))
     },
     setIsCollapse (state, payload) {
       state.isCollapse = payload

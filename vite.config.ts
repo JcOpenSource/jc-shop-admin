@@ -74,6 +74,14 @@ export default defineConfig({
     proxy: {
       // /foo/123 => http://localhost:4567/foo/123
       '/foo': ' http://localhost:4567/foo',
+      '/webutil': {
+        target: 'http://localhost:3000/',
+        changeOrigin: true,
+      },
+      '/jc': {
+        target: 'http://localhost:3000/',
+        changeOrigin: true,
+      },
       '/admin': {
         // target: 'http://jsonplaceholder.typicode.com/api', // 代理的目标地址
         target: 'http://localhost:3000/api',
