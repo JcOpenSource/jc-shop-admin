@@ -3,7 +3,7 @@
 */
 
 import request from '@/utils/request'
-import { ILoginResponse } from './types/common'
+import { ILoginResponse, IlogoutResponse } from './types/common'
 
 // 接口返回图片数据 Blob 二进制数据
 export const getCaptcha = () => {
@@ -26,5 +26,12 @@ export const login = (data: {
     method: 'POST',
     url: '/jc/login',
     data
+  })
+}
+
+export const logout = () => {
+  return request<IlogoutResponse>({
+    method: 'POST',
+    url: '/jc/logout'
   })
 }

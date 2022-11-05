@@ -90,12 +90,14 @@ import type { FormInstance, FormRules } from 'element-plus'
 
 import { getCaptcha, login } from '@/api/common'
 
-import { useRouter } from 'vue-router'
+// useRouter 路由实例
+// useRoute 当前路由对象
+import { useRouter, useRoute } from 'vue-router'
 import { useStore } from '@/store'
 
 const store = useStore()
 const router = useRouter()
-
+const route = useRoute()
 const loading = ref(false)
 const imgCodeSrc = ref('') // 响应式数据
 // const imgCodeRef = ref('')
@@ -103,7 +105,7 @@ const imgCodeSrc = ref('') // 响应式数据
 const formSize = ref('default')
 const ruleFormRef = ref<FormInstance>()
 const user = reactive({
-  account: 'admin1',
+  account: 'admin-ljc',
   pwd: '123',
   imgCode: 'vvdd'
 })
@@ -142,12 +144,18 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     loading.value = false
   })
   console.log(data)
-  store.commit('setUserInfo', data.user_info)
-
-  // 不要有登录记录
-  router.replace({
-    name: 'home'
+  store.commit('setUserInfo', {
+    ...data.user_info,
+    token: data.token
   })
+
+  // 代码需要做容错处理
+  let redirect = route.query.redirect ?? '/'
+  // 不要有登录记录
+  if (typeof redirect !== 'string') {
+    redirect = '/'
+  }
+  router.replace(redirect)
 }
 
 const changeVerCode = function () {

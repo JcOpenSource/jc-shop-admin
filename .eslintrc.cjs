@@ -27,6 +27,8 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/promise-function-async": "off",
     "@typescript-eslint/strict-boolean-expressions": "warn",
+    "@typescript-eslint/prefer-optional-chain": "off",
+    "eslint-disable-next-line": "off",
     "no-unused-vars": "off"
   },
   // 针对特定文件做规则定制

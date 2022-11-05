@@ -1,11 +1,16 @@
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
 import { InjectionKey } from 'vue'
 import { IUserInfo } from '../api/types/common'
+import { setItem, getItem } from '../utils/storage'
+import { USER } from '@/utils/constant'
+
 const state = {
   count: 0,
   foo: 'Hello state',
   // 从本地存储获取初始化
-  userInfo: JSON.parse(window.localStorage.getItem('user') ?? 'null') as IUserInfo | null,
+  userInfo: getItem<{ token: string } & IUserInfo>(USER),
+  // token 和 userInfo 合并到一起
+  // userInfo: JSON.parse(window.localStorage.getItem('user') ?? 'null') as IUserInfo | null,
   isCollapse: false
 }
 
@@ -26,7 +31,8 @@ export const store = createStore<State>({
     setUserInfo (state, payload) {
       state.userInfo = payload
       // 持久化到本地
-      window.localStorage.setItem('user', JSON.stringify(state.userInfo))
+      // window.localStorage.setItem('user', JSON.stringify(state.userInfo))
+      setItem(USER, state.userInfo)
     },
     setIsCollapse (state, payload) {
       state.isCollapse = payload

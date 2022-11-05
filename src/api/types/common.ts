@@ -37,3 +37,8 @@ export interface ILoginResponse {
   version: string
   newOrderAudioLink: string
 }
+
+export interface IlogoutResponse {
+  status: number
+  msg: string
+}

@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
+import { store } from '@/store'
 
 // 克隆 实例 不会影响axios本身
 const request = axios.create({
@@ -24,6 +25,11 @@ const request = axios.create({
 // Add a request interceptor
 // axios.interceptors.request.use
 request.interceptors.request.use(function (config) {
+  const user = store.state.userInfo
+  // eslint-disable-next-line @typescript-eslint/prefer-optional-chain
+  if (user && user.token) {
+    config.headers.Authorization = `Bearer ${user.token}`
+  }
   // 统一设置用户身份 token
   console.log('config:', config)
   return config

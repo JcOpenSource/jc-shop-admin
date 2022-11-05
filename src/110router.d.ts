@@ -3,6 +3,7 @@ import 'vue-router'
 
 declare module 'vue-router' {
   interface RouteMate {
-    title: string
+    title?: string
+    requiresAuth?: boolean
   }
 }

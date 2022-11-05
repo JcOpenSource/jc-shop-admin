@@ -5,7 +5,8 @@ const routes: RouteRecordRaw = {
   name: 'media',
   component: () => import('@/views/media/mediaIndex.vue'),
   meta: {
-    title: '媒体'
+    title: '媒体',
+    requiresAuth: true
   }
 }
 
